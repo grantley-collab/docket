@@ -7,6 +7,25 @@
   "base": "L",
   "need": 2,
   "img": "https://productimages.coles.com.au/productimages/4/439693.jpg",
+  "match": {
+   "include": [
+    "full cream",
+    "milk"
+   ],
+   "exclude": [
+    "flavoured",
+    "lactose",
+    "oat",
+    "soy",
+    "almond",
+    "chocolate",
+    "strawberry",
+    "powder",
+    "evaporated",
+    "condensed",
+    "coconut"
+   ]
+  },
   "s": [
    [
     3.4,
@@ -46,6 +65,20 @@
   "base": "each",
   "need": 12,
   "img": "https://productimages.coles.com.au/productimages/4/4932940.jpg",
+  "match": {
+   "include": [
+    "egg",
+    "free range|free-range"
+   ],
+   "exclude": [
+    "chocolate",
+    "easter",
+    "mayo",
+    "noodle",
+    "pasta",
+    "quail"
+   ]
+  },
   "s": [
    [
     6.6,
@@ -77,6 +110,28 @@
   "base": "each",
   "need": 1,
   "img": "https://productimages.coles.com.au/productimages/8/8956189.jpg",
+  "match": {
+   "include": [
+    "white",
+    "bread"
+   ],
+   "exclude": [
+    "roll",
+    "wrap",
+    "crumb",
+    "gluten",
+    "sourdough",
+    "crumpet",
+    "garlic",
+    "pizza",
+    "mix",
+    "banana",
+    "bun",
+    "raisin",
+    "fruit",
+    "turkish"
+   ]
+  },
   "s": [
    [
     4.6,
@@ -88,21 +143,21 @@
     1
    ],
    [
-    5.2,
+    4.6,
     1,
     "700g",
     null,
-    "Abbott's Bakery Rustic White Bread Sandwich Slice Loaf 700g",
-    "https://www.woolworths.com.au/shop/productdetails/690672/abbott-s-bakery-rustic-white-bread-sandwich-slice-loaf",
+    "Tip Top The One White Sandwich Slice Bread Loaf Bakery 700g",
+    "https://www.woolworths.com.au/shop/productdetails/713816/tip-top-the-one-white-sandwich-slice-bread-loaf-bakery",
     0
    ],
    [
-    2.49,
+    3.69,
     1,
-    "400 g",
+    "700 g",
     null,
-    "WHITE MILL Banana Bread Mix 400g",
-    "https://www.aldi.com.au/product/white-mill-banana-bread-mix-400g-000000000000590853",
+    "BAKERS LIFE Bakehouse Traditional White Bread 700g",
+    "https://www.aldi.com.au/product/bakers-life-bakehouse-traditional-white-bread-700g-000000000000402046",
     0
    ],
    null
@@ -115,16 +170,43 @@
   "emoji": "🧈",
   "base": "kg",
   "need": 0.5,
-  "img": "https://productimages.coles.com.au/productimages/6/6442431.jpg",
+  "img": "https://productimages.coles.com.au/productimages/3/3169880.jpg",
+  "match": {
+   "include": [
+    "butter"
+   ],
+   "exclude": [
+    "peanut",
+    "almond",
+    "cashew",
+    "shea",
+    "cookie",
+    "biscuit",
+    "popcorn",
+    "chicken",
+    "spread",
+    "garlic",
+    "body",
+    "potato",
+    "herb",
+    "pickle",
+    "bean",
+    "vegetable",
+    "broccoli",
+    "corn",
+    "chocolate",
+    "sauce"
+   ]
+  },
   "s": [
    [
-    5,
+    7,
     0.5,
     "500g",
     null,
-    "Coles Finest Parmentier Potatoes With Herb Butter",
-    "https://www.coles.com.au/product/coles-finest-parmentier-potatoes-with-herb-butter-500g-6442431",
-    1
+    "Coles Simply Salted Butter",
+    "https://www.coles.com.au/product/coles-simply-salted-butter-500g-3169880",
+    0
    ],
    [
     7,
@@ -136,12 +218,12 @@
     0
    ],
    [
-    2.49,
+    6.99,
     0.5,
     "500 g",
     null,
-    "DELI ORIGINALS Bread & Butter Pickles 500g",
-    "https://www.aldi.com.au/product/deli-originals-bread-butter-pickles-500g-000000000681098001",
+    "PURE VALLEY Unsalted Butter 500g",
+    "https://www.aldi.com.au/product/pure-valley-unsalted-butter-500g-000000000000399244",
     0
    ],
    null
@@ -154,25 +236,53 @@
   "emoji": "🍌",
   "base": "kg",
   "need": 1,
-  "img": "https://productimages.coles.com.au/productimages/4/409499.jpg",
+  "img": "https://productimages.coles.com.au/productimages/2/2511791.jpg",
+  "match": {
+   "include": [
+    "banana"
+   ],
+   "exclude": [
+    "bread",
+    "chip",
+    "cake",
+    "muffin",
+    "yoghurt",
+    "smoothie",
+    "dried",
+    "lolly",
+    "lollies",
+    "milk",
+    "bar",
+    "flavour",
+    "frozen"
+   ]
+  },
   "s": [
    [
-    0.66,
-    0.17,
-    "approx. 170g",
+    3.9,
+    0.75,
+    "750g",
     null,
-    "Coles Bananas",
-    "https://www.coles.com.au/product/coles-bananas-approx-170g-409499",
+    "Coles Bananas Mini Pack",
+    "https://www.coles.com.au/product/coles-bananas-mini-pack-750g-2511791",
     0
    ],
-   null,
    [
-    2.99,
-    0.5,
-    "500 g",
+    5.3,
+    0.55,
+    "550g",
+    5.9,
+    "Woolworths Banana Loaf 550g",
+    "https://www.woolworths.com.au/shop/productdetails/921669/woolworths-banana-loaf",
+    0
+   ],
+   [
+    3.69,
+    1,
+    "approx. 0.18 kg per piece",
     null,
-    "ORCHARD & VINE Frozen Banana 500g",
-    "https://www.aldi.com.au/product/orchard-vine-frozen-banana-500g-000000000000617436",
+    "Cavendish Bananas per kg",
+    "https://www.aldi.com.au/product/no-brand-cavendish-bananas-per-kg-000000000000380234",
     0
    ],
    null
@@ -186,6 +296,26 @@
   "base": "kg",
   "need": 1,
   "img": "https://productimages.coles.com.au/productimages/2/2263179.jpg",
+  "match": {
+   "include": [
+    "chicken",
+    "breast"
+   ],
+   "exclude": [
+    "schnitzel",
+    "crumbed",
+    "kiev",
+    "smoked",
+    "cooked",
+    "roast",
+    "stir",
+    "nugget",
+    "strips",
+    "marinated",
+    "tenderloin",
+    "stuffed"
+   ]
+  },
   "s": [
    [
     15.4,
@@ -197,21 +327,21 @@
     1
    ],
    [
-    9.4,
-    0.65,
-    "650g",
-    null,
-    "Woolworths RSPCA Approved Chicken Breast Fillets 650g",
-    "https://www.woolworths.com.au/shop/productdetails/6078623/woolworths-rspca-approved-chicken-breast-fillets",
-    1
+    9.5,
+    1,
+    "per 350g",
+    12,
+    "Woolworths RSPCA Approved Chicken Breast Fillet per 350g",
+    "https://www.woolworths.com.au/shop/productdetails/710953/woolworths-rspca-approved-chicken-breast-fillet",
+    0
    ],
    [
-    10.99,
-    1.38,
-    "approx. 1.38 kg per package",
+    8.49,
+    1,
+    "1 kg",
     null,
-    "BROAD OAK FARMS RSPCA Approved Chicken Breast Fillets Bulk Pack per kg",
-    "https://www.aldi.com.au/product/broad-oak-farms-rspca-approved-chicken-breast-fillets-bulk-pack-per-kg-000000000000399727",
+    "FARMWOOD Chicken Breast Chips 1kg",
+    "https://www.aldi.com.au/product/farmwood-chicken-breast-chips-1kg-000000000000371039",
     0
    ],
    null
@@ -224,33 +354,55 @@
   "emoji": "🥩",
   "base": "kg",
   "need": 0.5,
-  "img": "https://productimages.coles.com.au/productimages/8/8782237.jpg",
+  "img": "https://productimages.coles.com.au/productimages/9/9012814.jpg",
+  "match": {
+   "include": [
+    "beef",
+    "mince"
+   ],
+   "exclude": [
+    "pie",
+    "pastry",
+    "sausage",
+    "burger",
+    "meatball",
+    "plant",
+    "lamb",
+    "kebab",
+    "pasty",
+    "patty",
+    "pork",
+    "bolognese",
+    "veal",
+    "sauce"
+   ]
+  },
   "s": [
    [
-    6.25,
+    7.7,
     0.5,
     "500g",
     null,
-    "Coles Pork & Beef 3 Star Regular Mince Bolognese",
-    "https://www.coles.com.au/product/coles-pork-beef-3-star-regular-mince-bolognese-500g-8782237",
-    0
-   ],
-   [
-    6.25,
-    0.5,
-    "500g",
-    null,
-    "Woolworths Pork & Beef Mince 500g",
-    "https://www.woolworths.com.au/shop/productdetails/239598/woolworths-pork-beef-mince",
+    "Coles No Added Hormone Beef Regular Mince",
+    "https://www.coles.com.au/product/coles-no-added-hormone-beef-regular-mince-500g-9012814",
     1
    ],
    [
-    12.49,
-    1.9,
-    "approx. 1.9 kg per package",
+    7.7,
+    0.5,
+    "500g",
     null,
-    "JINDURRA STATION 3 Star Beef Mince per kg",
-    "https://www.aldi.com.au/product/jindurra-station-3-star-beef-mince-per-kg-000000000000399885",
+    "Woolworths Beef Mince 500g",
+    "https://www.woolworths.com.au/shop/productdetails/577863/woolworths-beef-mince",
+    0
+   ],
+   [
+    5.29,
+    0.6,
+    "600 g",
+    null,
+    "JULIUS & CACHET Diced Pet Mince with Kangaroo and Beef 600g",
+    "https://www.aldi.com.au/product/julius-cachet-diced-pet-mince-with-kangaroo-and-beef-600g-000000000000401702",
     0
    ],
    null
@@ -263,15 +415,31 @@
   "emoji": "🍝",
   "base": "kg",
   "need": 0.5,
-  "img": "https://productimages.coles.com.au/productimages/3/3328972.jpg",
+  "img": "https://productimages.coles.com.au/productimages/3/3329115.jpg",
+  "match": {
+   "include": [
+    "spaghetti"
+   ],
+   "exclude": [
+    "sauce",
+    "bolognese",
+    "gluten",
+    "tinned",
+    "canned",
+    "noodle",
+    "instant",
+    "wholemeal",
+    "meal"
+   ]
+  },
   "s": [
    [
-    1,
+    0.9,
     0.5,
     "500g",
     null,
-    "Coles Durum Wheat Pasta Spaghetti",
-    "https://www.coles.com.au/product/coles-durum-wheat-pasta-spaghetti-500g-3328972",
+    "Coles Simply Pasta Spaghetti",
+    "https://www.coles.com.au/product/coles-simply-pasta-spaghetti-500g-3329115",
     1
    ],
    [
@@ -302,16 +470,29 @@
   "emoji": "🍚",
   "base": "kg",
   "need": 1,
-  "img": "https://productimages.coles.com.au/productimages/3/3339390.jpg",
+  "img": "https://productimages.coles.com.au/productimages/8/8703059.jpg",
+  "match": {
+   "include": [
+    "basmati"
+   ],
+   "exclude": [
+    "microwave",
+    "pouch",
+    "flavoured",
+    "sachet",
+    "cooked",
+    "cup"
+   ]
+  },
   "s": [
    [
-    12.5,
-    5,
-    "5kg",
-    14.85,
-    "Daawat Everyday Gold Basmati Rice",
-    "https://www.coles.com.au/product/daawat-everyday-gold-basmati-rice-5kg-3339390",
-    0
+    4,
+    1,
+    "1Kg",
+    null,
+    "Coles Basmati Rice",
+    "https://www.coles.com.au/product/coles-basmati-rice-1kg-8703059",
+    1
    ],
    [
     4,
@@ -323,12 +504,12 @@
     0
    ],
    [
-    14.99,
-    5,
-    "5 kg",
+    3.99,
+    1,
+    "1 kg",
     null,
-    "Basmati Rice 5kg",
-    "https://www.aldi.com.au/product/no-brand-basmati-rice-5kg-000000000000741261",
+    "IMPERIAL GRAIN Basmati Rice 1kg",
+    "https://www.aldi.com.au/product/imperial-grain-basmati-rice-1kg-000000000000262325",
     0
    ],
    null
@@ -342,6 +523,24 @@
   "base": "kg",
   "need": 0.5,
   "img": "https://productimages.coles.com.au/productimages/2/293995.jpg",
+  "match": {
+   "include": [
+    "tasty",
+    "cheese"
+   ],
+   "exclude": [
+    "slice",
+    "shredded",
+    "grated",
+    "snack",
+    "cracker",
+    "biscuit",
+    "sauce",
+    "spread",
+    "dip",
+    "stick"
+   ]
+  },
   "s": [
    [
     6.8,
@@ -380,15 +579,39 @@
   "emoji": "🥫",
   "base": "each",
   "need": 1,
-  "img": "https://productimages.coles.com.au/productimages/1/1632699.jpg",
+  "img": "https://productimages.coles.com.au/productimages/5/5548754.jpg",
+  "match": {
+   "include": [
+    "diced",
+    "tomato"
+   ],
+   "exclude": [
+    "paste",
+    "sauce",
+    "soup",
+    "sun",
+    "passata",
+    "salsa",
+    "chutney",
+    "ketchup",
+    "sofrito",
+    "chilli",
+    "basil",
+    "garlic",
+    "onion",
+    "herb",
+    "capsicum",
+    "olive"
+   ]
+  },
   "s": [
    [
-    1.3,
+    1.1,
     1,
     "400g",
     null,
-    "Coles Diced Tomatoes Sofrito Style",
-    "https://www.coles.com.au/product/coles-diced-tomatoes-sofrito-style-400g-1632699",
+    "Coles Italian Diced Tomatoes",
+    "https://www.coles.com.au/product/coles-italian-diced-tomatoes-400g-5548754",
     1
    ],
    [
@@ -419,15 +642,28 @@
   "emoji": "🫒",
   "base": "L",
   "need": 1,
-  "img": "https://productimages.coles.com.au/productimages/7/7513309.jpg",
+  "img": "https://productimages.coles.com.au/productimages/3/3233399.jpg",
+  "match": {
+   "include": [
+    "extra virgin",
+    "olive oil"
+   ],
+   "exclude": [
+    "spray",
+    "capsule",
+    "lamp",
+    "soap",
+    "spread"
+   ]
+  },
   "s": [
    [
-    29,
-    2.2,
-    "2.2L",
     40,
-    "Moro Eco Bottle Primero Extra Virgin Olive Oil",
-    "https://www.coles.com.au/product/moro-eco-bottle-primero-extra-virgin-olive-oil-2-2l-7513309",
+    3.78,
+    "3.78L",
+    null,
+    "La Espanola Extra Virgin Olive Oil",
+    "https://www.coles.com.au/product/la-espanola-extra-virgin-olive-oil-3-78l-3233399",
     0
    ],
    [
@@ -448,15 +684,7 @@
     "https://www.aldi.com.au/product/the-olive-tree-mediterranean-extra-virgin-olive-oil-3-78l-000000000000592758",
     0
    ],
-   [
-    149.99,
-    1.75,
-    "1.75 L",
-    null,
-    "Chateau d'Estoublon 1489 Extra Virgin Olive Oil 1.75L",
-    "https://www.costco.com.au/Grocery-Household/Chateau-dEstoublon-1489-Extra-Virgin-Olive-Oil-175L/p/140273",
-    0
-   ]
+   null
   ]
  },
  {
@@ -467,6 +695,22 @@
   "base": "roll",
   "need": 12,
   "img": "https://productimages.coles.com.au/productimages/1/1710748.jpg",
+  "match": {
+   "include": [
+    "toilet"
+   ],
+   "exclude": [
+    "wipe",
+    "flushable",
+    "holder",
+    "cleaner",
+    "freshener",
+    "spray",
+    "tablet",
+    "brush",
+    "blue"
+   ]
+  },
   "s": [
    [
     8.95,
@@ -513,15 +757,31 @@
   "emoji": "🥣",
   "base": "kg",
   "need": 1.2,
-  "img": "https://productimages.coles.com.au/productimages/3/3328972.jpg",
+  "img": "https://productimages.coles.com.au/productimages/9/9393015.jpg",
+  "match": {
+   "include": [
+    "weet-bix|weetbix|wheat biscuit"
+   ],
+   "exclude": [
+    "mini",
+    "honey",
+    "protein",
+    "bar",
+    "chocolate",
+    "kids",
+    "bites",
+    "flake",
+    "pasta"
+   ]
+  },
   "s": [
    [
-    1,
-    0.5,
-    "500g",
+    7,
+    1.2,
+    "1.2kg",
     null,
-    "Coles Durum Wheat Pasta Spaghetti",
-    "https://www.coles.com.au/product/coles-durum-wheat-pasta-spaghetti-500g-3328972",
+    "Sanitarium Weet-bix Cereal",
+    "https://www.coles.com.au/product/sanitarium-weet-bix-cereal-1-2kg-9393015",
     1
    ],
    [
@@ -534,12 +794,12 @@
     0
    ],
    [
-    3.59,
-    1,
-    "1 kg",
+    3.99,
+    0.375,
+    "375 g",
     null,
-    "MARKET FARE Peas, Carrots & Super Sweet Corn 1kg",
-    "https://www.aldi.com.au/product/market-fare-peas-carrots-super-sweet-corn-1kg-000000000000364734",
+    "SANITARIUM Weet-Bix 375g",
+    "https://www.aldi.com.au/product/sanitarium-weet-bix-375g-000000000000365527",
     0
    ],
    null
@@ -553,6 +813,26 @@
   "base": "kg",
   "need": 1,
   "img": "https://productimages.coles.com.au/productimages/7/7250935.jpg",
+  "match": {
+   "include": [
+    "greek",
+    "yoghurt|yogurt"
+   ],
+   "exclude": [
+    "drink",
+    "frozen",
+    "coconut",
+    "vanilla",
+    "honey",
+    "flavoured",
+    "fruit",
+    "mango",
+    "strawberry",
+    "berry",
+    "dessert",
+    "pouch"
+   ]
+  },
   "s": [
    [
     7.2,
@@ -592,6 +872,22 @@
   "base": "kg",
   "need": 1,
   "img": "https://productimages.coles.com.au/productimages/3/399067.jpg",
+  "match": {
+   "include": [
+    "peas"
+   ],
+   "exclude": [
+    "snow",
+    "sugar snap",
+    "mushy",
+    "chick",
+    "pigeon",
+    "split",
+    "corn",
+    "mix",
+    "carrot"
+   ]
+  },
   "s": [
    [
     2.5,
@@ -631,6 +927,26 @@
   "base": "kg",
   "need": 1,
   "img": "https://productimages.coles.com.au/productimages/4/4803991.jpg",
+  "match": {
+   "include": [
+    "onion",
+    "brown"
+   ],
+   "exclude": [
+    "red",
+    "spring",
+    "white",
+    "ring",
+    "fried",
+    "crispy",
+    "powder",
+    "dip",
+    "soup",
+    "pickled",
+    "cocktail",
+    "shallot"
+   ]
+  },
   "s": [
    [
     4,
@@ -670,6 +986,26 @@
   "base": "kg",
   "need": 2,
   "img": "https://productimages.coles.com.au/productimages/3/3958573.jpg",
+  "match": {
+   "include": [
+    "potato"
+   ],
+   "exclude": [
+    "sweet",
+    "chip",
+    "crisp",
+    "mash",
+    "wedge",
+    "salad",
+    "gem",
+    "fries",
+    "scallop",
+    "gnocchi",
+    "baked",
+    "frozen",
+    "dutch"
+   ]
+  },
   "s": [
    [
     4.5,
@@ -690,12 +1026,12 @@
     0
    ],
    [
-    4.99,
-    2,
-    "2 kg",
+    8.49,
+    4,
+    "4 kg",
     null,
-    "Washed Red Potatoes 2kg",
-    "https://www.aldi.com.au/product/no-brand-washed-red-potatoes-2kg-000000000000380355",
+    "White Potatoes 4kg",
+    "https://www.aldi.com.au/product/no-brand-white-potatoes-4kg-000000000000380363",
     0
    ],
    null
@@ -709,6 +1045,22 @@
   "base": "L",
   "need": 2,
   "img": "https://productimages.coles.com.au/productimages/1/1388805.jpg",
+  "match": {
+   "include": [
+    "laundry",
+    "liquid"
+   ],
+   "exclude": [
+    "pod",
+    "capsule",
+    "sheet",
+    "powder",
+    "stain",
+    "softener",
+    "conditioner",
+    "wash bag"
+   ]
+  },
   "s": [
    [
     2,
@@ -756,6 +1108,24 @@
   "base": "L",
   "need": 2,
   "img": "https://productimages.coles.com.au/productimages/2/2531551.jpg",
+  "match": {
+   "include": [
+    "orange",
+    "juice"
+   ],
+   "exclude": [
+    "concentrate",
+    "sparkling",
+    "cordial",
+    "mango",
+    "apple",
+    "pineapple",
+    "tropical",
+    "blend",
+    "carrot",
+    "kids"
+   ]
+  },
   "s": [
    [
     4.2,
@@ -795,6 +1165,28 @@
   "base": "each",
   "need": 1,
   "img": "https://productimages.coles.com.au/productimages/1/1838366.jpg",
+  "match": {
+   "include": [
+    "tuna"
+   ],
+   "exclude": [
+    "oil",
+    "chilli",
+    "flavour",
+    "salad",
+    "steak",
+    "sandwich",
+    "mayo",
+    "kit",
+    "cat",
+    "dog",
+    "pet",
+    "pouch",
+    "lemon",
+    "bbq",
+    "sweet"
+   ]
+  },
   "s": [
    [
     1,
@@ -833,15 +1225,30 @@
   "emoji": "🍎",
   "base": "kg",
   "need": 1,
-  "img": "https://productimages.coles.com.au/productimages/5/5111654.jpg",
+  "img": "https://productimages.coles.com.au/productimages/4/4438477.jpg",
+  "match": {
+   "include": [
+    "pink lady"
+   ],
+   "exclude": [
+    "juice",
+    "dried",
+    "chip",
+    "cider",
+    "pie",
+    "sauce",
+    "snack",
+    "pouch"
+   ]
+  },
   "s": [
    [
-    1.5,
-    0.2,
-    "approx. 200g each",
+    7.5,
+    1,
+    "1kg",
     null,
-    "Coles Pink Lady Apples Medium",
-    "https://www.coles.com.au/product/coles-pink-lady-apples-medium-approx-200g-each-5111654",
+    "Coles Pink Lady Apples",
+    "https://www.coles.com.au/product/coles-pink-lady-apples-1kg-4438477",
     0
    ],
    [
@@ -873,6 +1280,27 @@
   "base": "kg",
   "need": 0.25,
   "img": "https://productimages.coles.com.au/productimages/8/8559688.jpg",
+  "match": {
+   "include": [
+    "bacon"
+   ],
+   "exclude": [
+    "bits",
+    "pieces",
+    "chip",
+    "crisp",
+    "dip",
+    "sauce",
+    "jam",
+    "burger",
+    "pasty",
+    "pie",
+    "roll",
+    "wrap",
+    "seasoning",
+    "cheese"
+   ]
+  },
   "s": [
    [
     12.5,
