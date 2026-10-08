@@ -1,0 +1,11 @@
+{
+  "name": "docket",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "discover": "node scrape.mjs discover",
+    "prices": "node scrape.mjs",
+    "test": "node test.mjs"
+  }
+}
