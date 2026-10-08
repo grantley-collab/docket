@@ -9,7 +9,8 @@ const ACTORS = {
   coles: process.env.ACTOR_COLES || 'diopside/coles-au-products',
   costco: process.env.ACTOR_COSTCO || 'abotapi/costco-au-scraper',
 };
-const PER_QUERY = 8;            // products kept per search while discovering
+const PER_QUERY = 20;           // products kept per search while discovering (one-off cost)
+const PER_QUERY_COSTCO = 8;     // Costco hides most grocery prices, so fewer is plenty
 const COSTCO_DETAILS = true;    // true = brand + pictures (costs a little more)
 
 const read = async (f, d) => { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return d; } };
@@ -46,7 +47,7 @@ const jobs = {
     ? { retailers: ['woolworths', 'aldi'], searchQueries: queries, maxItemsPerScope: PER_QUERY }
     : { products: [...urls('woolworths'), ...urls('aldi')] }),
   costco: () => runActor(ACTORS.costco, doDiscover
-    ? { mode: 'search', queries, maxItems: queries.length * PER_QUERY, fetchDetails: COSTCO_DETAILS }
+    ? { mode: 'search', queries, maxItems: queries.length * PER_QUERY_COSTCO, fetchDetails: COSTCO_DETAILS }
     : { mode: 'url', urls: urls('costco'), fetchDetails: COSTCO_DETAILS }),
 };
 

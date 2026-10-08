@@ -1,7 +1,7 @@
 // Offline test using fake records shaped like the scrapers' documented output.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { normalise, parseMeasure, packCount, discover, buildPrices, findAlerts } from './lib.mjs';
+import { normalise, parseMeasure, packCount, pickBest, discover, buildPrices, findAlerts } from './lib.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('catalog.json', 'utf8'));
 const raw = {
@@ -40,6 +40,21 @@ assert.equal(matches.milk.costco.qty, 6);             // 6 x 1L
 assert.equal(matches.milk.coles.name.includes('Chocolate'), false);
 assert.equal(matches.butter.aldi.qty, 0.5);
 assert.equal(matches.butter.costco, undefined);
+
+// problems seen in the first real run
+const cat=id=>catalog.find(p=>p.id===id);
+const mk=(store,r)=>normalise(store,r);
+// Aldi sells chicken "per kg": price is already per kg, so 1 unit, not the 1.38kg pack weight
+const aldiChicken=mk('aldi',{retailer:'aldi',productId:'1',name:'RSPCA Approved Chicken Breast Fillets Bulk Pack per kg',brand:'Broad Oak',size:'1.38 kg',price:10.99,unitPrice:10.99,unitPriceUnit:'1kg',productUrl:'https://aldi/c'});
+assert.equal(pickBest(cat('chicken'),[aldiChicken]).qty,1);
+// "Sweet" corn must not match Weet-Bix; pasta must not either
+assert.equal(pickBest(cat('weet'),[mk('aldi',{retailer:'aldi',productId:'2',name:'Peas, Carrots & Super Sweet Corn',brand:'Market Fare',size:'1kg',price:3.59,unitPrice:3.59,unitPriceUnit:'1kg',productUrl:'u'})]),null);
+assert.ok(pickBest(cat('weet'),[mk('woolworths',{retailer:'woolworths',productId:'3',name:'Weet-Bix Breakfast Cereal 1.2kg',brand:'Sanitarium',size:'1.2kg',price:7,unitPrice:5.83,unitPriceUnit:'1kg',productUrl:'u'})]));
+// potatoes with herb butter are not butter; 5kg rice is too big when you need 1kg; $150 olive oil is ignored
+assert.equal(pickBest(cat('butter'),[mk('coles',{id:9,name:'Parmentier Potatoes With Herb Butter',brand:'Coles Finest',size:'500g',price:5,unit_price:1,unit_of_measure:'g',unit_quantity:100,availability:true,url:'u'})]),null);
+assert.equal(pickBest(cat('rice'),[mk('coles',{id:8,name:'Everyday Gold Basmati Rice',brand:'Daawat',size:'5kg',price:12.5,unit_price:2.5,unit_of_measure:'kg',unit_quantity:1,availability:true,url:'u'})]),null);
+assert.equal(pickBest(cat('oil'),[mk('costco',{code:'7',name:'Extra Virgin Olive Oil 1.75L',brand:'Chateau',price:149.99,unitPrice:85.7,unitMeasure:'1L',stockStatus:'inStock',url:'u'})]),null);
+assert.equal(pickBest(cat('eggs'),[mk('aldi',{retailer:'aldi',productId:'5',name:'Free-Range Eggs 12pk',brand:'Farm Fresh',size:'12 pack',price:5.49,productUrl:'u'})]).qty,12);
 
 // daily build
 const prices = buildPrices(catalog, matches, pools);

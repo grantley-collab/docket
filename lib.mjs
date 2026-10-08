@@ -31,13 +31,16 @@ export function packQty(p, rec) {
     return n || (p.need === 1 ? 1 : null);
   }
   const mult = text.toLowerCase().match(/(\d+)\s*[x×]\s*(\d+(?:\.\d+)?\s*(?:kg|g|ml|l)\b)/);
-  if (mult) { const one = parseMeasure(mult[2]); if (one && one.base === p.base) return r4(+mult[1] * one.qty); }
-  for (const s of [rec.size, rec.name]) {
+  let fromSize = null;
+  if (mult) { const one = parseMeasure(mult[2]); if (one && one.base === p.base) fromSize = r4(+mult[1] * one.qty); }
+  if (fromSize == null) for (const s of [rec.size, rec.name]) {
     const m = parseMeasure(s);
-    if (m && m.base === p.base) return r4(m.qty);
+    if (m && m.base === p.base) { fromSize = r4(m.qty); break; }
   }
-  if (rec.unit && rec.unit.base === p.base && rec.unit.price > 0) return r4(rec.price / rec.unit.price * rec.unit.qty);
-  return null;
+  const fromUnit = rec.unit && rec.unit.base === p.base && rec.unit.price > 0 ? r4(rec.price / rec.unit.price * rec.unit.qty) : null;
+  // If the size and the store's own unit price disagree (e.g. "per kg" items sold by weight), trust the unit price.
+  if (fromSize && fromUnit) return Math.abs(fromSize - fromUnit) / fromUnit <= 0.1 ? fromSize : fromUnit;
+  return fromSize || fromUnit || null;
 }
 
 const num = v => (v == null || v === '' ? null : Number.isFinite(+v) ? +v : null);
@@ -89,7 +92,10 @@ export function pickBest(p, cands) {
     if (!nameMatches(p, c)) continue;
     const qty = packQty(p, c);
     if (!qty) continue;
+    // Ignore packs far bigger or smaller than you need (Costco bulk packs are allowed) and silly premium prices.
+    if (c.store !== 'costco' && (qty > p.need * (p.maxPack ?? 4) || qty < p.need * (p.minPack ?? 0.15))) continue;
     const u = c.price / qty;
+    if (p.maxUnit && u > p.maxUnit) continue;
     if (!best || u < best.u) best = { c, qty, u };
   }
   return best;
@@ -125,7 +131,7 @@ export function buildPrices(catalog, matches, pools, oldPrices = [], failed = ne
       return rec ? entryFor(p, { ...rec, size: m.size ?? rec.size }, m.qty) : null;
     });
     const img = STORES.map(st => matches[p.id]?.[st]?.image).find(Boolean) || null;
-    return { id: p.id, name: p.name, cat: p.cat, emoji: p.emoji, base: p.base, need: p.need, img, s };
+    return { id: p.id, name: p.name, cat: p.cat, emoji: p.emoji, base: p.base, need: p.need, img, match: { include: p.include || [], exclude: p.exclude || [] }, s };
   });
 }
 

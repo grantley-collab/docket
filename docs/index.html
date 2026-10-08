@@ -83,6 +83,13 @@ h2{font-size:18px;margin:22px 0 8px}
 .field{display:block;margin:10px 0}.field span{display:block;font-size:13px;color:var(--mute);margin-bottom:3px}
 .field input{width:100%;font:inherit;padding:10px;border:1.5px solid var(--line);border-radius:8px}
 .sheet .body p{margin:6px 0}
+.addrow{display:flex;gap:8px;align-items:stretch}.addrow .add{flex:1;margin-bottom:12px}
+.scanbtn{flex:none;width:52px;margin-bottom:12px;border:2px solid var(--ink);background:#fff;border-radius:8px;font-size:22px;cursor:pointer}
+.cam{position:relative;background:#000;border-radius:8px;overflow:hidden;aspect-ratio:4/3;margin:8px 0}
+.cam video{width:100%;height:100%;object-fit:cover;display:block}
+.aim{position:absolute;left:10%;right:10%;top:34%;bottom:34%;border:3px solid var(--tag);border-radius:8px;pointer-events:none}
+.found{display:flex;gap:12px;align-items:center;background:var(--paper);border-radius:8px;padding:10px;margin:10px 0}
+.found .th{width:64px;height:64px}
 .pill{border:2px solid var(--ink);background:#fff;font:inherit;font-weight:700;padding:12px;border-radius:8px;cursor:pointer}
 .pill[disabled]{color:var(--good);border-color:var(--good);cursor:default}
 .link{background:none;border:0;padding:0;font:inherit;font-weight:700;color:inherit;text-align:left;cursor:pointer}
@@ -124,6 +131,7 @@ h2{font-size:18px;margin:22px 0 8px}
 <div class="demo" id="demo"></div>
 <main id="app"></main>
 <div id="sheet"></div>
+<div id="scan"></div>
 
 <script>
 /* ---------- STORES ---------- */
@@ -184,12 +192,12 @@ SAMPLE.forEach(p=>{
 let CATALOG=SAMPLE, DEMO=true, META=null;
 
 /* ---------- STATE ---------- */
-let state={doc:{items:{},watch:{}},list:[],watch:{},tab:'list',sync:null};
+let state={doc:{items:{},watch:{},track:{}},list:[],watch:{},tab:'list',sync:null};
 let ui={open:null,cat:'All',sync:false,msg:''};
 const now=()=>Date.now();
 try{
   const s=localStorage.getItem('trolley2');
-  if(s){const j=JSON.parse(s);state.doc=j.doc||state.doc;state.sync=j.sync||null;state.tab=j.tab||'list'}
+  if(s){const j=JSON.parse(s);state.doc=j.doc||state.doc;state.doc.track=state.doc.track||{};state.sync=j.sync||null;state.tab=j.tab||'list'}
   else{const o=localStorage.getItem('trolley');if(o){const j=JSON.parse(o);   // migrate the earlier single-device list
     (j.list||[]).forEach((l,n)=>state.doc.items[l.id]={qty:l.qty,t:now(),a:now()+n});
     Object.entries(j.watch||{}).forEach(([id,t])=>state.doc.watch[id]={target:t,t:now()})}}
@@ -201,7 +209,10 @@ function setItem(id,qty){const it=state.doc.items[id];state.doc.items[id]={qty,t
 function delItem(id){const it=state.doc.items[id];state.doc.items[id]={qty:0,t:now(),a:(it&&it.a)||now(),del:true}}
 function setWatch(id,target){state.doc.watch[id]={target:target==null?null:target,t:now()}}
 function unwatch(id){state.doc.watch[id]={target:null,t:now(),del:true}}
+function addTrack(t){state.doc.track[t.code]={code:t.code,name:t.name,brand:t.brand||'',size:t.size||'',t:now()}}
+function delTrack(code){const x=state.doc.track[code];state.doc.track[code]={code,name:x?x.name:'',t:now(),del:true}}
 function derive(){
+  state.tracked=Object.values(state.doc.track||{}).filter(v=>!v.del).sort((a,b)=>a.t-b.t);
   state.list=Object.entries(state.doc.items).filter(([id,v])=>!v.del&&byId(id)).sort((x,y)=>x[1].a-y[1].a).map(([id,v])=>({id,qty:v.qty}));
   state.watch={};Object.entries(state.doc.watch).forEach(([id,v])=>{if(!v.del)state.watch[id]=v.target});
 }
@@ -247,8 +258,11 @@ function viewList(){
     <button class="icon x" data-del="${p.id}" aria-label="Remove ${esc(p.name)}">×</button>
    </div>`}).join('');
   return `
-   <div class="add"><input id="q" placeholder="Add an item, e.g. milk" autocomplete="off" aria-label="Add an item"><div class="sugg" id="sugg" hidden></div></div>
+   <div class="addrow"><div class="add"><input id="q" placeholder="Add an item, e.g. milk" autocomplete="off" aria-label="Add an item"><div class="sugg" id="sugg" hidden></div></div>
+     <button class="scanbtn" data-scan-open="1" aria-label="Scan a barcode" title="Scan a barcode">📷</button></div>
    ${rows?`<div>${rows}</div><p class="note">Tap ★ to get an alert when an item goes on special. Tap a name for details.</p>`:`<div class="empty">Your list is empty. Search above or pick from the products below.</div>`}
+   ${state.tracked.length?`<h2>Scanned, to track</h2><div>${state.tracked.map(t=>`<div class="row"><div class="name">${esc(t.name||t.code)}<small>${esc([t.brand,t.size,t.code].filter(Boolean).join(' · '))}</small></div><button class="icon x" data-track-del="${esc(t.code)}" aria-label="Remove ${esc(t.name||t.code)}">×</button></div>`).join('')}</div>
+     <p class="note">These aren't in Docket's product list yet. <button class="link" data-track-copy="1" style="font-weight:700;text-decoration:underline">Copy this list</button> to add them.</p>`:''}
    <h2>Browse products</h2>
    <div class="chips">${['All',...new Set(CATALOG.map(p=>p.cat))].map(c=>`<button data-cat="${esc(c)}" aria-pressed="${ui.cat===c}">${esc(c)}</button>`).join('')}</div>
    <div class="grid">${CATALOG.filter(p=>ui.cat==='All'||p.cat===ui.cat).map(p=>{
@@ -347,10 +361,19 @@ function render(){
 
 /* ---------- EVENTS ---------- */
 document.addEventListener('click',e=>{
-  const t=e.target.closest('[data-tab],[data-inc],[data-dec],[data-del],[data-watch],[data-add],[data-open],[data-cat],[data-close],[data-sync-open],[data-sync-save],[data-sync-gen],[data-sync-copy],[data-sync-stop]');
+  const t=e.target.closest('[data-tab],[data-inc],[data-dec],[data-del],[data-watch],[data-add],[data-open],[data-cat],[data-close],[data-sync-open],[data-sync-save],[data-sync-gen],[data-sync-copy],[data-sync-stop],[data-scan-open],[data-scan-close],[data-scan-add],[data-scan-track],[data-scan-manual],[data-scan-again],[data-track-del],[data-track-copy]');
   if(!t)return;
   const d=t.dataset;
   if(d.close){if(t.classList.contains('overlay')&&e.target!==t)return;ui.open=null;ui.sync=false;ui.msg='';render();return}
+  if(d.scanOpen!==undefined){openScan();return}
+  if(d.scanClose!==undefined){if(t.classList.contains('overlay')&&e.target!==t)return;closeScan();return}
+  if(d.scanAdd){if(!state.list.some(l=>l.id===d.scanAdd))setItem(d.scanAdd,1);save();render();queueSync();scanDone('Added to your list. Scan the next item.');return}
+  if(d.scanTrack!==undefined){const nm=$('#scan-name');if(scanItem){if(nm&&nm.value.trim())scanItem.name=nm.value.trim();addTrack(scanItem);save();render();queueSync();scanDone('Saved. Scan the next item.')}return}
+  if(d.scanManual!==undefined){const c=($('#bc').value||'').replace(/\D/g,'');if(c.length>=8)onCode(c);else $('#scan-result').innerHTML='<p class="note">Enter all the digits under the barcode (8 to 14).</p>';return}
+  if(d.scanAgain!==undefined){scanDone('');return}
+  if(d.trackDel){delTrack(d.trackDel);save();render();queueSync();return}
+  if(d.trackCopy!==undefined){const txt=state.tracked.map(t=>[t.code,t.brand,t.name,t.size].filter(Boolean).join(' | ')).join('\n');
+    (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>{alert('Copied. Paste it into your chat with Claude.')}).catch(()=>prompt('Copy this list:',txt));return}
   if(d.syncOpen){ui.sync=true;render();return}
   if(d.syncGen!==undefined){$('#s-code').value=newCode();return}
   if(d.syncSave!==undefined){
@@ -384,7 +407,90 @@ document.addEventListener('change',e=>{
   if(e.target.dataset.target){const v=parseFloat(e.target.value);setWatch(e.target.dataset.target,isNaN(v)?null:v);save();render();queueSync()}
 });
 
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&(ui.open||ui.sync)){ui.open=null;ui.sync=false;render()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.scan){closeScan();return}if(e.key==='Escape'&&(ui.open||ui.sync)){ui.open=null;ui.sync=false;render()}});
+
+/* ---------- BARCODE SCANNER ---------- */
+// The scanner lives outside render() so the camera keeps running while the list updates or syncs.
+let scanStream=null,scanTimer=null,scanLocked=false,scanItem=null,zxingReady=null;
+const loadZXing=()=>zxingReady||(zxingReady=new Promise((ok,no)=>{if(window.ZXing)return ok();const s=document.createElement('script');s.src='zxing.min.js';s.onload=ok;s.onerror=no;document.head.appendChild(s)}));
+function openScan(){
+  ui.scan=true;scanItem=null;scanLocked=false;
+  $('#scan').innerHTML=`<div class="overlay" data-scan-close="1"><div class="sheet" role="dialog" aria-modal="true" aria-label="Scan a barcode">
+    <button class="icon close" data-scan-close="1" aria-label="Close">×</button>
+    <div class="body" style="padding-top:20px"><h2>Scan a barcode</h2>
+    <div class="cam"><video id="cam" playsinline muted></video><div class="aim"></div></div>
+    <p class="note" id="cam-msg">Starting the camera…</p>
+    <label class="field"><span>Or type the number under the barcode</span><div style="display:flex;gap:8px"><input id="bc" inputmode="numeric" placeholder="e.g. 9300633500313"><button class="pill" data-scan-manual="1" style="padding:8px 14px">Look up</button></div></label>
+    <div id="scan-result"></div></div></div></div>`;
+  startCamera();
+}
+function stopCamera(){clearInterval(scanTimer);scanTimer=null;if(scanStream){scanStream.getTracks().forEach(t=>t.stop());scanStream=null}}
+function closeScan(){ui.scan=false;stopCamera();$('#scan').innerHTML=''}
+function scanDone(msg){scanItem=null;scanLocked=false;const r=$('#scan-result');if(r)r.innerHTML=msg?`<p style="color:var(--good);font-weight:700">${esc(msg)}</p>`:'';}
+async function startCamera(){
+  const msg=$('#cam-msg');
+  try{
+    if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)throw new Error('no camera');
+    scanStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}},audio:false});
+    if(!ui.scan){stopCamera();return}
+    const v=$('#cam');v.srcObject=scanStream;await v.play();
+    msg.textContent='Point the camera at the barcode.';
+    if('BarcodeDetector' in window){
+      const det=new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e']});
+      scanTimer=setInterval(async()=>{if(scanLocked||!v.videoWidth)return;try{const r=await det.detect(v);if(r[0])onCode(r[0].rawValue)}catch(e){}},300);
+    }else{
+      await loadZXing();
+      const Z=window.ZXing,hints=new Map();
+      hints.set(Z.DecodeHintType.POSSIBLE_FORMATS,[Z.BarcodeFormat.EAN_13,Z.BarcodeFormat.EAN_8,Z.BarcodeFormat.UPC_A,Z.BarcodeFormat.UPC_E]);
+      hints.set(Z.DecodeHintType.TRY_HARDER,true);
+      const reader=new Z.MultiFormatReader();reader.setHints(hints);
+      const cv=document.createElement('canvas'),cx=cv.getContext('2d',{willReadFrequently:true});
+      scanTimer=setInterval(()=>{if(scanLocked||!v.videoWidth)return;
+        cv.width=v.videoWidth;cv.height=v.videoHeight;cx.drawImage(v,0,0);
+        try{const bmp=new Z.BinaryBitmap(new Z.HybridBinarizer(new Z.HTMLCanvasElementLuminanceSource(cv)));onCode(reader.decode(bmp).getText())}catch(e){}},300);
+    }
+  }catch(e){msg.textContent='The camera isn\'t available here. Allow camera access, or type the number below.'}
+}
+async function lookupBarcode(code){
+  try{
+    const r=await fetch('https://world.openfoodfacts.org/api/v2/product/'+code+'.json?fields=product_name,brands,quantity,image_front_small_url');
+    const j=await r.json();
+    if(j.status===1&&j.product&&j.product.product_name)
+      return {code,name:j.product.product_name.trim(),brand:(j.product.brands||'').split(',')[0].trim(),size:(j.product.quantity||'').trim(),img:j.product.image_front_small_url||''};
+    return {code,notFound:true};
+  }catch(e){return {code,error:true}}
+}
+// Which of Docket's items could this product be? Uses the same include/exclude words the price scraper uses.
+function catalogMatches(p){
+  const t=[p.brand,p.name,p.size].join(' ').toLowerCase();
+  return CATALOG.filter(c=>{
+    const m=c.match;
+    if(m&&m.include&&m.include.length)return m.include.every(w=>w.toLowerCase().split('|').some(x=>t.includes(x)))&&!(m.exclude||[]).some(w=>t.includes(w.toLowerCase()));
+    return c.name.toLowerCase().split(/\s+/).every(w=>t.includes(w));
+  }).slice(0,3);
+}
+let lastCode='',lastAt=0;
+async function onCode(code){
+  if(scanLocked)return;
+  if(code===lastCode&&Date.now()-lastAt<4000)return;   // don't re-read the barcode you just handled
+  lastCode=code;lastAt=Date.now();scanLocked=true;
+  const box=$('#scan-result');if(!box)return;
+  box.innerHTML=`<p class="note">Looking up ${esc(code)}…</p>`;
+  const p=await lookupBarcode(code);
+  if(!ui.scan)return;
+  const th=p.img?`<div class="th">🛒<img src="${esc(p.img)}" alt="" onerror="this.remove()"></div>`:'<div class="th">🛒</div>';
+  if(p.error){box.innerHTML=`<p class="note">Couldn't reach the product database. Check your connection and try again.</p><button class="pill" data-scan-again="1" style="width:100%">Scan again</button>`;return}
+  if(p.notFound){
+    scanItem={code,name:'',brand:'',size:''};
+    box.innerHTML=`<p class="note">That barcode (${esc(code)}) isn't in the free product database. Type what it is and save it.</p>
+      <label class="field"><span>Product name</span><input id="scan-name" placeholder="e.g. Vegemite 380g"></label>
+      <div style="display:flex;gap:8px"><button class="pill" data-scan-track="1" style="flex:1">Save to track</button><button class="pill" data-scan-again="1" style="flex:1">Scan again</button></div>`;return}
+  scanItem=p;
+  const ms=catalogMatches(p);
+  box.innerHTML=`<div class="found">${th}<div><b>${esc(p.name)}</b><div class="note" style="margin:2px 0 0">${esc([p.brand,p.size].filter(Boolean).join(' · '))}</div></div></div>
+    ${ms.length?`<p class="note">Docket compares this type of item across stores, not the exact brand.</p>`+ms.map(c=>`<button class="pill" data-scan-add="${esc(c.id)}" style="width:100%;margin-bottom:8px">${state.list.some(l=>l.id===c.id)?'Already on your list: ':'Add to list: '}${esc(c.name)}</button>`).join(''):`<p class="note">This isn't one of the items Docket compares yet.</p>`}
+    <div style="display:flex;gap:8px"><button class="pill" data-scan-track="1" style="flex:1">Save to track</button><button class="pill" data-scan-again="1" style="flex:1">Scan again</button></div>`;
+}
 
 /* ---------- SYNC (optional: lets two people share one list) ---------- */
 let syncStatus='off',syncBusy=false,syncAgain=false,syncDebounce=null;
@@ -394,8 +500,8 @@ const rpc=async(fn,body)=>{
   if(!r.ok)throw new Error('HTTP '+r.status);const t=await r.text();return t?JSON.parse(t):null};
 // Merge two copies: for each entry the most recent change wins, and deletions are remembered for 30 days.
 function merge(a,b){
-  const out={items:{},watch:{}};
-  for(const k of ['items','watch']){
+  const out={items:{},watch:{},track:{}};
+  for(const k of ['items','watch','track']){
     const x0=a[k]||{},y0=b[k]||{};
     new Set([...Object.keys(x0),...Object.keys(y0)]).forEach(id=>{
       const x=x0[id],y=y0[id];
@@ -414,8 +520,8 @@ async function sync(){
   syncBusy=true;setStatus('busy');
   try{
     const remote=(await rpc('get_household',{p_code:state.sync.code}))||{};
-    remote.items=remote.items||{};remote.watch=remote.watch||{};
-    const merged=merge(state.doc,remote),changed=canon(merged)!==canon(state.doc);
+    remote.items=remote.items||{};remote.watch=remote.watch||{};remote.track=remote.track||{};
+    state.doc.track=state.doc.track||{};const merged=merge(state.doc,remote),changed=canon(merged)!==canon(state.doc);
     state.doc=merged;
     if(canon(merged)!==canon(remote))await rpc('save_household',{p_code:state.sync.code,p_data:merged});
     if(changed){save();render()}
