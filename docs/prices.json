@@ -317,15 +317,7 @@
    ]
   },
   "s": [
-   [
-    15.4,
-    1.4,
-    "approx. 1.4kg",
-    null,
-    "Coles RSPCA Approved Chicken Breast Fillets Large Pack",
-    "https://www.coles.com.au/product/coles-rspca-approved-chicken-breast-fillets-large-pack-approx-1-4kg-2263179",
-    1
-   ],
+   null,
    [
     9.5,
     1,
@@ -451,15 +443,7 @@
     "https://www.woolworths.com.au/shop/productdetails/44571/woolworths-essentials-pasta-spaghetti",
     0
    ],
-   [
-    0.89,
-    0.5,
-    "500 g",
-    null,
-    "CUCINA Pasta Spaghetti 500g",
-    "https://www.aldi.com.au/product/cucina-pasta-spaghetti-500g-000000000000656172",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -503,15 +487,7 @@
     "https://www.woolworths.com.au/shop/productdetails/694550/woolworths-basmati-rice",
     0
    ],
-   [
-    3.99,
-    1,
-    "1 kg",
-    null,
-    "IMPERIAL GRAIN Basmati Rice 1kg",
-    "https://www.aldi.com.au/product/imperial-grain-basmati-rice-1kg-000000000000262325",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -560,15 +536,7 @@
     "https://www.woolworths.com.au/shop/productdetails/310237/woolworths-tasty-cheese-block",
     0
    ],
-   [
-    8.99,
-    1,
-    "1 kg",
-    null,
-    "WESTACRE DAIRY Tasty Cheese Block 1kg",
-    "https://www.aldi.com.au/product/westacre-dairy-tasty-cheese-block-1kg-000000000000403395",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -623,15 +591,7 @@
     "https://www.woolworths.com.au/shop/productdetails/311488/woolworths-essentials-diced-tomatoes",
     0
    ],
-   [
-    0.95,
-    1,
-    "400 g",
-    null,
-    "REMANO Italian Diced Tomatoes 400g",
-    "https://www.aldi.com.au/product/remano-italian-diced-tomatoes-400g-000000000000278716",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -657,15 +617,7 @@
    ]
   },
   "s": [
-   [
-    40,
-    3.78,
-    "3.78L",
-    null,
-    "La Espanola Extra Virgin Olive Oil",
-    "https://www.coles.com.au/product/la-espanola-extra-virgin-olive-oil-3-78l-3233399",
-    0
-   ],
+   null,
    [
     14,
     1,
@@ -675,15 +627,7 @@
     "https://www.woolworths.com.au/shop/productdetails/698868/woolworths-extra-virgin-spanish-olive-oil",
     0
    ],
-   [
-    38.99,
-    3.78,
-    "3.78 l",
-    null,
-    "THE OLIVE TREE Mediterranean Extra Virgin Olive Oil 3.78L",
-    "https://www.aldi.com.au/product/the-olive-tree-mediterranean-extra-virgin-olive-oil-3-78l-000000000000592758",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -730,15 +674,7 @@
     "https://www.woolworths.com.au/shop/productdetails/173155/naturale-100-recycled-3-ply-toilet-tissue",
     0
    ],
-   [
-    8.39,
-    24,
-    "4,320 sheets",
-    null,
-    "CONFIDENCE Toilet Tissue 3 Ply 24 Pack",
-    "https://www.aldi.com.au/product/confidence-toilet-tissue-3-ply-24-pack-000000000000421226",
-    1
-   ],
+   null,
    [
     26.99,
     48,
@@ -775,15 +711,7 @@
    ]
   },
   "s": [
-   [
-    7,
-    1.2,
-    "1.2kg",
-    null,
-    "Sanitarium Weet-bix Cereal",
-    "https://www.coles.com.au/product/sanitarium-weet-bix-cereal-1-2kg-9393015",
-    1
-   ],
+   null,
    [
     7,
     1.2,
@@ -793,15 +721,7 @@
     "https://www.woolworths.com.au/shop/productdetails/200695/weet-bix-breakfast-cereal",
     0
    ],
-   [
-    3.99,
-    0.375,
-    "375 g",
-    null,
-    "SANITARIUM Weet-Bix 375g",
-    "https://www.aldi.com.au/product/sanitarium-weet-bix-375g-000000000000365527",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -852,15 +772,7 @@
     "https://www.woolworths.com.au/shop/productdetails/571487/woolworths-natural-greek-style-yoghurt",
     0
    ],
-   [
-    3.89,
-    1,
-    "1 kg",
-    null,
-    "LYTTOS Light Greek Style Natural Yogurt 1kg",
-    "https://www.aldi.com.au/product/lyttos-light-greek-style-natural-yogurt-1kg-000000000000398974",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -907,15 +819,7 @@
     "https://www.woolworths.com.au/shop/productdetails/96845/woolworths-essentials-frozen-peas",
     0
    ],
-   [
-    2.49,
-    1,
-    "1 kg",
-    null,
-    "MARKET FARE Garden Peas 1kg",
-    "https://www.aldi.com.au/product/market-fare-garden-peas-1kg-000000000000365543",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -958,7 +862,7 @@
     1
    ],
    [
-    4,
+    3,
     1,
     "1kg",
     null,
@@ -966,15 +870,7 @@
     "https://www.woolworths.com.au/shop/productdetails/144336/woolworths-onion-brown-bag",
     0
    ],
-   [
-    1.99,
-    1,
-    "1 kg",
-    null,
-    "Brown Onions 1kg",
-    "https://www.aldi.com.au/product/no-brand-brown-onions-1kg-000000000000380210",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -1025,15 +921,7 @@
     "https://www.woolworths.com.au/shop/productdetails/262783/woolworths-washed-potatoes-bag",
     0
    ],
-   [
-    8.49,
-    4,
-    "4 kg",
-    null,
-    "White Potatoes 4kg",
-    "https://www.aldi.com.au/product/no-brand-white-potatoes-4kg-000000000000380363",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -1080,15 +968,7 @@
     "https://www.woolworths.com.au/shop/productdetails/88870/purity-sensitive-laundry-liquid",
     0
    ],
-   [
-    1.99,
-    2,
-    "2 l",
-    null,
-    "ALMAT Laundry Liquid 2L",
-    "https://www.aldi.com.au/product/almat-laundry-liquid-2l-000000000000588470",
-    0
-   ],
+   null,
    [
     22.99,
     5.73,
@@ -1145,15 +1025,7 @@
     "https://www.woolworths.com.au/shop/productdetails/825528/woolworths-orange-juice",
     0
    ],
-   [
-    5.99,
-    3,
-    "3 l",
-    null,
-    "COUNTRY ORCHARD Orange Juice 3L",
-    "https://www.aldi.com.au/product/country-orchard-orange-juice-3l-000000000000400439",
-    1
-   ],
+   null,
    null
   ]
  },
@@ -1206,15 +1078,7 @@
     "https://www.woolworths.com.au/shop/productdetails/476700/woolworths-tuna-in-springwater",
     0
    ],
-   [
-    0.99,
-    1,
-    "95 g",
-    null,
-    "PORTVIEW Tuna Chunks in Springwater 95g",
-    "https://www.aldi.com.au/product/portview-tuna-chunks-in-springwater-95g-000000000199750002",
-    1
-   ],
+   null,
    null
   ]
  },
@@ -1260,15 +1124,7 @@
     "https://www.woolworths.com.au/shop/productdetails/310968/woolworths-fresh-pink-lady-apples-punnet",
     0
    ],
-   [
-    3.99,
-    1,
-    "1 kg",
-    null,
-    "Pink Lady Apples 1kg",
-    "https://www.aldi.com.au/product/no-brand-pink-lady-apples-1kg-000000000000380273",
-    0
-   ],
+   null,
    null
   ]
  },
@@ -1302,25 +1158,9 @@
    ]
   },
   "s": [
-   [
-    12.5,
-    1,
-    "1kg",
-    null,
-    "Thomson's Deli Short Cut Bacon",
-    "https://www.coles.com.au/product/thomson-s-deli-short-cut-bacon-1kg-8559688",
-    0
-   ],
    null,
-   [
-    9.99,
-    1,
-    "1 kg",
-    null,
-    "BERG Short Cut Bacon 1kg",
-    "https://www.aldi.com.au/product/berg-short-cut-bacon-1kg-000000000000398931",
-    1
-   ],
+   null,
+   null,
    null
   ]
  }
