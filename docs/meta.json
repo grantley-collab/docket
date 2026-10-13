@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-12T20:20:23.028Z",
+ "updated": "2026-10-13T20:30:24.248Z",
  "status": {
   "costco": "2 products",
+  "coles": "19 products",
   "woolworths": "22 products",
-  "aldi": "6 products",
-  "coles": "19 products"
+  "aldi": "6 products"
  }
 }

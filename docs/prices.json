@@ -259,7 +259,7 @@
   },
   "s": [
    [
-    3.9,
+    4.9,
     0.75,
     "750g",
     null,
@@ -268,16 +268,16 @@
     0
    ],
    [
-    5.3,
+    5.9,
     0.55,
     "550g",
-    5.9,
+    null,
     "Woolworths Banana Loaf 550g",
     "https://www.woolworths.com.au/shop/productdetails/921669/woolworths-banana-loaf",
     0
    ],
    [
-    3.69,
+    4.49,
     1,
     "approx. 0.18 kg per piece",
     null,
@@ -666,10 +666,10 @@
     1
    ],
    [
-    4.9,
+    6,
     12,
     "12 pack",
-    6,
+    null,
     "Naturale 100% Recycled 3 Ply Toilet Tissue 12 pack",
     "https://www.woolworths.com.au/shop/productdetails/173155/naturale-100-recycled-3-ply-toilet-tissue",
     0
@@ -755,10 +755,10 @@
   },
   "s": [
    [
-    7.2,
+    9,
     1,
     "1kg",
-    9,
+    null,
     "Jalna Greek Style Natural Yoghurt",
     "https://www.coles.com.au/product/jalna-greek-style-natural-yoghurt-1kg-7250935",
     0
@@ -859,10 +859,10 @@
     null,
     "Coles Brown Onions",
     "https://www.coles.com.au/product/coles-brown-onions-1kg-4803991",
-    1
+    0
    ],
    [
-    3,
+    2.5,
     1,
     "1kg",
     null,
@@ -913,7 +913,7 @@
     1
    ],
    [
-    6,
+    8.5,
     2,
     "2kg",
     null,
@@ -1107,16 +1107,16 @@
   },
   "s": [
    [
-    7.5,
+    4.9,
     1,
     "1kg",
     null,
     "Coles Pink Lady Apples",
     "https://www.coles.com.au/product/coles-pink-lady-apples-1kg-4438477",
-    0
+    1
    ],
    [
-    7.5,
+    4.9,
     1,
     "1kg",
     null,
