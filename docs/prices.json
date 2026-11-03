@@ -52,7 +52,7 @@
     null,
     "FARMDALE Full Cream Milk 3L",
     "https://www.aldi.com.au/product/farmdale-full-cream-milk-3l-000000000000398894",
-    1
+    0
    ],
    null
   ]
@@ -739,10 +739,10 @@
   },
   "s": [
    [
-    7.2,
+    9,
     1,
     "1kg",
-    9,
+    null,
     "Jalna Greek Style Natural Yoghurt",
     "https://www.coles.com.au/product/jalna-greek-style-natural-yoghurt-1kg-7250935",
     0
@@ -837,13 +837,13 @@
   },
   "s": [
    [
-    2.5,
+    4,
     1,
     "1kg",
     null,
     "Coles Brown Onions",
     "https://www.coles.com.au/product/coles-brown-onions-1kg-4803991",
-    1
+    0
    ],
    [
     4,
@@ -1091,16 +1091,16 @@
   },
   "s": [
    [
-    4.9,
+    7.5,
     1,
     "1kg",
     null,
     "Coles Pink Lady Apples",
     "https://www.coles.com.au/product/coles-pink-lady-apples-1kg-4438477",
-    1
+    0
    ],
    [
-    4.9,
+    7.5,
     1,
     "1kg",
     null,
