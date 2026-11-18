@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-17T02:51:51.738Z",
+ "updated": "2026-11-18T02:18:28.647Z",
  "status": {
   "coles": "failed, kept old prices",
+  "costco": "failed, kept old prices",
   "woolworths": "failed, kept old prices",
-  "aldi": "failed, kept old prices",
-  "costco": "failed, kept old prices"
+  "aldi": "failed, kept old prices"
  }
 }
